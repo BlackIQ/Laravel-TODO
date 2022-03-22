@@ -22,7 +22,7 @@
             <h4>
                 {{ $todo->name }}
                 <div class="float-end">
-                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-primary editing">Edit</button>
                     <button class="btn btn-link text-danger"><i class="fa fa-trash"></i></button>
                 </div>
             </h4>
@@ -31,7 +31,7 @@
                 <form action="/update/{{ $todo->id }}" method="POST">
                     @csrf
                     <label for="todo" class="form-label">Todo name</label>
-                    <input class="form-control" name="todo" placeholder="TODO name" id="todo" required>
+                    <input class="form-control" name="todo" placeholder="TODO name" id="todo" value="{{ $todo->name }}" required>
                     <br>
                     <button class="btn btn-primary">Update</button>
                 </form>

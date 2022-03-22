@@ -24,4 +24,14 @@ class TodoController extends Controller
 
         return redirect('/');
     }
+
+    public function update($id) {
+        $todo = Todo::findOrFail($id);
+
+        $todo->name = request('todo');
+
+        $todo->update();
+
+        return redirect('/');
+    }
 }

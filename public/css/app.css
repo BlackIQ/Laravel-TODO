@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 body {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Karla', sans-serif !important;
 }
 .pointer {
     cursor: pointer;

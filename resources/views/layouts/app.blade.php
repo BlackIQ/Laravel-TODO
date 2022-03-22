@@ -89,21 +89,5 @@
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/mdb.min.js') }}"></script>
-
-    <script>
-        $('.editing').click(function () {
-            if ($(this).text() == 'Edit') {
-                $(this).text('Close');
-                $(this).parent('.float-end').parent('h4').next('.edit').css({
-                    'display': 'block',
-                });
-            } else {
-                $(this).text('Edit');
-                $(this).parent('.float-end').parent('h4').next('.edit').css({
-                    'display': 'none',
-                });
-            }
-        });
-    </script>
 </body>
 </html>

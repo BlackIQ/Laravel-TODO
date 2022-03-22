@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\TodoController@index')->middleware('auth');
+Route::post('/add', 'App\Http\Controllers\TodoController@add');
 
 Auth::routes();
 

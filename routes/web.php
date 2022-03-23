@@ -17,6 +17,8 @@ Route::get('/', 'App\Http\Controllers\TodoController@index')->middleware('auth')
 Route::post('/add', 'App\Http\Controllers\TodoController@add');
 Route::post('/update/{id}', 'App\Http\Controllers\TodoController@update');
 Route::post('/delete/{id}', 'App\Http\Controllers\TodoController@delete');
+Route::post('/not/{id}', 'App\Http\Controllers\TodoController@not');
+Route::post('/done/{id}', 'App\Http\Controllers\TodoController@done');
 
 Auth::routes();
 

@@ -6,4 +6,6 @@ This is one of Laravel practical project and this time, we created a todo applic
 
 ### Heroku
 
-Application will deploy on Heroku as soon as possible.
+Application is up in Heroku. You can open it by [this link](http://immense-savannah-13682.herokuapp.com/).
+
+Hope you enjoy it.

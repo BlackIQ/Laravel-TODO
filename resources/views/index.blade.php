@@ -1,25 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Welcome <b>{{ Auth::user()->name }}</b>!</h1>
-    <br>
-    <form action="/add" method="POST">
-        @csrf
-        <div class="row">
-            <div class="col-md-11">
-                <input class="form-control" name="todo" placeholder="TODO name" id="todo" required>
-            </div>
-            <div class="col-md-1">
-                <button class="w-100 btn btn-primary">Add</button>
-            </div>
-        </div>
-        <br>
-    </form>
-    <br>
+<div class="">
     @if ($todos)
         @foreach ($todos as $todo)
-            <div class="todo">
+            <div class="todo m-1">
                 <h4>
                     @if ($todo->status)
                         <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('not-form-{{ $todo->id }}').submit();" checked>

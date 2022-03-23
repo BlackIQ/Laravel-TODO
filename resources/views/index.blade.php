@@ -21,11 +21,18 @@
         @foreach ($todos as $todo)
             <div class="todo">
                 <h4>
-                    <input type="checkbox" class="form-check-input">
-                    @if ($todo->status == 'done')
+                    @if ($todo->status == true)
+                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('not-form').submit();" checked>
                         <s>{{ $todo->name }}</s>
+                        <form action="/not/{{ $todo->id }}" id="not-form" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @else
+                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('done-form').submit();">
                         {{ $todo->name }}
+                        <form action="/done/{{ $todo->id }}" id="done-form" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @endif
                     <div class="float-end">
                         <button class="btn btn-primary editing">Edit</button>

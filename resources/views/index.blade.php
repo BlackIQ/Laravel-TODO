@@ -21,7 +21,7 @@
         @foreach ($todos as $todo)
             <div class="todo">
                 <h4>
-                    @if ($todo->status == true)
+                    @if ($todo->status)
                         <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('not-form').submit();" checked>
                         <s>{{ $todo->name }}</s>
                         <form action="/not/{{ $todo->id }}" id="not-form" method="POST" class="d-none">

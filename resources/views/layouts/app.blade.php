@@ -15,10 +15,6 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
@@ -82,7 +78,46 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
+            @guest
+                @else
+                <h1>Welcome <b>{{ Auth::user()->name }}</b>!</h1>
+                <br>
+                <form action="/add" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div class="m-1">
+                                <input class="form-control" name="todo" placeholder="TODO name" id="todo" required>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="m-1">
+                                <button class="w-100 btn btn-primary">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col" style="text-align: left;">
+                            <div class="m-1">
+                                <a class="text-primary" href="{{ url('/') }}">All {{ $all }}</a>
+                            </div>
+                        </div>
+                        <div class="col" style="text-align: center;">
+                            <div class="m-1">
+                                <a class="text-success" href="{{ url('/done') }}">Done {{ $dones }}</a>
+                            </div>
+                        </div>
+                        <div class="col" style="text-align: right;">
+                            <div class="m-1">
+                                <a class="text-danger" href="{{ url('/not') }}">Not Done {{ $notdones }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            @endguest
             @yield('content')
         </main>
     </div>

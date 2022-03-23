@@ -11,7 +11,31 @@ class TodoController extends Controller
     public function index() {
         $todos = Todo::where('user', Auth::user()->id)->latest()->get();
 
-        return view('index', ['todos' => $todos]);
+        $all = Todo::where('user', Auth::user()->id)->count();
+        $dones = Todo::where('user', Auth::user()->id)->where('status', true)->count();
+        $notdones = Todo::where('user', Auth::user()->id)->where('status', false)->count();
+
+        return view('index', ['todos' => $todos, 'dones' => $dones, 'notdones' => $notdones, 'all' => $all]);
+    }
+
+    public function dones() {
+        $todos = Todo::where('user', Auth::user()->id)->where('status', true)->latest()->get();
+
+        $all = Todo::where('user', Auth::user()->id)->count();
+        $dones = Todo::where('user', Auth::user()->id)->where('status', true)->count();
+        $notdones = Todo::where('user', Auth::user()->id)->where('status', false)->count();
+
+        return view('done', ['todos' => $todos, 'dones' => $dones, 'notdones' => $notdones, 'all' => $all]);
+    }
+
+    public function notdones() {
+        $todos = Todo::where('user', Auth::user()->id)->where('status', false)->latest()->get();
+
+        $all = Todo::where('user', Auth::user()->id)->count();
+        $dones = Todo::where('user', Auth::user()->id)->where('status', true)->count();
+        $notdones = Todo::where('user', Auth::user()->id)->where('status', false)->count();
+
+        return view('not', ['todos' => $todos, 'dones' => $dones, 'notdones' => $notdones, 'all' => $all]);
     }
 
     public function add() {

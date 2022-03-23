@@ -22,15 +22,15 @@
             <div class="todo">
                 <h4>
                     @if ($todo->status)
-                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('not-form').submit();" checked>
+                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('not-form-{{ $todo->id }}').submit();" checked>
                         <s>{{ $todo->name }}</s>
-                        <form action="/not/{{ $todo->id }}" id="not-form" method="POST" class="d-none">
+                        <form action="/not/{{ $todo->id }}" id="not-form-{{ $todo->id }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     @else
-                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('done-form').submit();">
+                        <input type="checkbox" class="form-check-input" onclick="event.preventDefault(); document.getElementById('done-form-{{ $todo->id }}').submit();">
                         {{ $todo->name }}
-                        <form action="/done/{{ $todo->id }}" id="done-form" method="POST" class="d-none">
+                        <form action="/done/{{ $todo->id }}" id="done-form-{{ $todo->id }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     @endif

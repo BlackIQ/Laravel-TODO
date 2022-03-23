@@ -36,7 +36,7 @@
                     @endif
                     <div class="float-end">
                         <button class="btn btn-primary editing">Edit</button>
-                        <button class="btn btn-link text-danger" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-link text-danger" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $todo->id }}').submit();"><i class="fa fa-trash"></i></button>
                     </div>
                 </h4>
                 <div class="edit" style="display: none;">
@@ -49,7 +49,7 @@
                         <button class="btn btn-primary">Update</button>
                     </form>
                 </div>
-                <form action="/delete/{{ $todo->id }}" id="delete-form" method="POST" class="d-none">
+                <form action="/delete/{{ $todo->id }}" id="delete-form-{{ $todo->id }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>

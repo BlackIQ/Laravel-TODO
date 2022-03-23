@@ -19,6 +19,7 @@ class TodoController extends Controller
 
         $todo->name = request('todo');
         $todo->user = Auth::user()->id;
+        $todo->status = false;
 
         $todo->save();
 
@@ -39,6 +40,26 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($id);
 
         $todo->delete();
+
+        return redirect('/');
+    }
+
+    public function not($id) {
+        $todo = Todo::findOrFail($id);
+
+        $todo->status = false;
+
+        $todo->update();
+
+        return redirect('/');
+    }
+
+    public function done($id) {
+        $todo = Todo::findOrFail($id);
+
+        $todo->status = true;
+
+        $todo->update();
 
         return redirect('/');
     }

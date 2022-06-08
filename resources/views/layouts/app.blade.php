@@ -98,24 +98,6 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col" style="text-align: left;">
-                            <div class="m-1">
-                                <a class="text-primary" href="{{ url('/') }}">All {{ $all }}</a>
-                            </div>
-                        </div>
-                        <div class="col" style="text-align: center;">
-                            <div class="m-1">
-                                <a class="text-success" href="{{ url('/done') }}">Done {{ $dones }}</a>
-                            </div>
-                        </div>
-                        <div class="col" style="text-align: right;">
-                            <div class="m-1">
-                                <a class="text-danger" href="{{ url('/not') }}">Not Done {{ $notdones }}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
                 </form>
             @endguest
             @yield('content')
